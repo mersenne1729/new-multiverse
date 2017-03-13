@@ -1,0 +1,430 @@
+/*  Sheet styles */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.content {
+    padding: 0 0.938rem;
+    margin: 0 auto;
+    min-width: 37.5rem;
+}
+
+:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/* Nav section */
+
+.nav {
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid #DDD;
+    z-index: 9999;
+    margin-top: -.5rem;
+}
+
+.nav> .content {
+    height: 4.375rem;
+}
+
+.nav .logo {
+    height: 4.375rem;
+    margin-left: -13rem;
+    ;
+}
+
+.nav .links {
+    float: right;
+    color: #838994;
+    font-size: 1.04rem;
+    margin-top: 1.7rem;
+}
+
+.nav .links li {
+    display: inline-block;
+    margin-left: 1.563rem;
+}
+
+.nav .links li a {
+    text-decoration: none;
+    color: #838994;
+}
+
+.nav .links li:hover {
+    cursor: pointer;
+    color: #333333;
+}
+
+
+/* Intro Section */
+
+.intro {
+    background: url('../img/level4.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 45.938rem;
+    overflow: auto;
+}
+
+.intro h1,
+.intro h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.intro h1 {
+    margin-top: 17.5rem;
+    font-size: 3.125rem;
+}
+
+.intro h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/* Containers for conent and resource  */
+
+.resource-container {
+    background-color: #42c299;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-style: none;
+    border-radius: 5px;
+    text-align: justify;
+    color: white;
+}
+
+.resource-container p {
+    text-align: center;
+}
+
+
+/* level sections */
+
+
+/*level0*/
+
+.level {
+    background: url('../img/level.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 45.938rem;
+    overflow: auto;
+}
+
+.level h1,
+.level h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level h1 {
+    margin-top: 17.5rem;
+    font-size: 3.125rem;
+}
+
+.level h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*level1*/
+
+.level1 {
+    background: url('../img/level1.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 49rem;
+    overflow: auto;
+}
+
+.level1 h1,
+.level1 h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level1 h1 {
+    margin-top: 10.5rem;
+    font-size: 3.125rem;
+}
+
+.level1 h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*level2*/
+
+.level2 {
+    background: url('../img/level2.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 49rem;
+    overflow: auto;
+}
+
+.level2 h1,
+.level2 h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level2 h1 {
+    margin-top: 10.5rem;
+    font-size: 3.125rem;
+}
+
+.level2 h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*level3*/
+
+.level3 {
+    background: url('../img/level3.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 49rem;
+    overflow: auto;
+}
+
+.level3 h1,
+.level3 h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level3 h1 {
+    margin-top: 10.5rem;
+    font-size: 3.125rem;
+}
+
+.level3 h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*level4*/
+
+.level4 {
+    background: url('../img/level.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 52rem;
+    overflow: auto;
+}
+
+.level4 h1,
+.level4 h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level4 h1 {
+    margin-top: 10.5rem;
+    font-size: 3.125rem;
+}
+
+.level4 h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*level5*/
+
+.level5 {
+    background: url('../img/level7.jpg') no-repeat center bottom;
+    background-size: cover;
+    height: 49rem;
+    overflow: auto;
+}
+
+.level5 h1,
+.level5 h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.level5 h1 {
+    margin-top: 10.5rem;
+    font-size: 3.125rem;
+}
+
+.level5 h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/* The buttons */
+
+.intro .buttons {
+    color: white;
+    text-align: center;
+    margin-top: 1.563rem;
+}
+
+.mainbutton {
+    background-color: green;
+    width: 9.688rem;
+    border-style: none;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-size: 1.125rem;
+}
+
+.mainbutton:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/* Level breake */
+
+.level-type {
+    background-color: #fff;
+    overflow: hidden;
+    padding-bottom: 5rem;
+}
+
+.break {
+    margin-bottom: 5rem;
+}
+
+h3 span {
+    font-size: 50px;
+    color: #838994;
+}
+
+.level-type .content {
+    margin-top: 7.875rem;
+    padding: none;
+    color: #1d1e21;
+    text-align: center;
+}
+
+.level-type h2 {
+    font-size: 2.75rem;
+    margin: 1.625rem 0 3.125rem;
+    font-weight: 300;
+}
+
+.level-type .break > li {
+    width: 33.3333333%;
+    float: left;
+}
+
+.level-type .break h3 {
+    font-weight: 400;
+    font-size: 1.563rem;
+    margin: 2.5rem 0px 1.875rem;
+}
+
+.break-text p {
+    font-size: 10px !important;
+}
+
+.level-type .break p {
+    font-weight: 300;
+    font-size: 1.313rem;
+}
+
+
+/* Footer */
+
+.footer {
+    background-color: #fff;
+    overflow: auto;
+    padding-bottom: 9.375rem;
+    text-align: center;
+    padding-bottom: 0;
+    text-decoration: none;
+}
+
+.footer hr {
+    border: 0;
+    border-top: 1px solid #eaebec;
+    margin: 1.313rem 0;
+}
+
+.footer hr a {
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/* Responsive Design */
+
+@media (min-width: 48rem) {
+    .content {
+        width: 46rem;
+    }
+}
+
+@media (min-width: 62rem) {
+    .content {
+        width: 60rem;
+    }
+}
+
+@media (min-width: 75rem) {
+    .content {
+        width: 60%;
+    }
+}
+
+
+/* Chrome - Safari - Opera */
+
+@-webkit-keyframes bounce {
+    0%,
+    100% {
+        margin-top: 0px;
+    }
+    50% {
+        margin-top: 2rem;
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes bounce {
+    0%,
+    100% {
+        margin-top: 0px;
+    }
+    50% {
+        margin-top: 2rem;
+    }
+}
+
+.content-container {
+    background-color: ghostwhite;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-style: none;
+    border-radius: 5px;
+    text-align: justify;
+    color: black;
+}
