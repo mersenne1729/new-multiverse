@@ -41,11 +41,12 @@ if (require.main === module) {
 };
 
 //external api call function
-var getFromWikipedia = function (searchTerm, args) {
+var getArticleIDsBySearchTerm = function (searchTerm) {
     var emitter = new events.EventEmitter();
     //console.log("inside getFromWikipedia function");
-    unirest.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + '&format=json&callback=?')
-        .qs(args)
+    // unirest.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + '&format=json&callback=?')
+    //     .qs(args)
+    unirest.get('https://core.ac.uk:443/api-v2/search/' + searchTerm + '?page=1&pageSize=10&apiKey=9NfTnvr5WJLFi6YEhlwy3PSXbUMDHR1C')
         //after api call we get the response inside the "response" parameter
         .end(function (response) {
             //success scenario
@@ -60,16 +61,55 @@ var getFromWikipedia = function (searchTerm, args) {
     return emitter;
 };
 
-app.get('/search/:name', function (req, res) {
+var getArticleDetailsByArticleID = function (articleID) {
+    var emitter = new events.EventEmitter();
+    //console.log("inside getFromWikipedia function");
+    // unirest.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + '&format=json&callback=?')
+    //     .qs(args)
+    unirest.get('https://core.ac.uk:443/api-v2/articles/get/' + articleID + '?metadata=true&fulltext=true&citations=true&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=9NfTnvr5WJLFi6YEhlwy3PSXbUMDHR1C')
+        //after api call we get the response inside the "response" parameter
+        .end(function (response) {
+            //success scenario
+            if (response.ok) {
+                emitter.emit('end', response.body);
+            }
+            //failure scenario
+            else {
+                emitter.emit('error', response.code);
+            }
+        });
+    return emitter;
+};
+
+//local api end-points
+
+app.get('/get-article-ids/:searchTerm', function (req, res) {
     
 
     //    external api function call and response
 
-    var searchReq = getFromWikipedia(req.params.name, {
-        contentType: "application/json; charset=utf-8",
-        async: false,
-        dataType: "json"
+    var searchReq = getArticleIDsBySearchTerm(req.params.searchTerm);
+
+    //get the data from the first api call
+    searchReq.on('end', function (item) {
+
+        //get the artists and ID for use in next call
+        res.json(item);
     });
+
+    //error handling
+    searchReq.on('error', function (code) {
+        res.sendStatus(code);
+    });
+
+});
+
+app.get('/get-article-details/:articleID', function (req, res) {
+    
+
+    //    external api function call and response
+
+    var searchReq = getArticleDetailsByArticleID(req.params.articleID);
 
     //get the data from the first api call
     searchReq.on('end', function (item) {
