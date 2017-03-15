@@ -7,7 +7,139 @@ $(".js-search-form").submit(function (event) {
 });
 
 
-// Search terms for the various levels
+
+// Dropbox of scientists and idears NEED THE KEYWORD MULTIVERSE ADDED+
+
+var scientistArray = [
+    //scientists/idear1
+    {
+        author: "Adam Frank",
+    },
+    //scientist/idear2
+    {
+        author: "Alan Guth",
+    },
+    //scientist/idear3
+    {
+        author: "Alexander Vilenkin",
+    },
+    //scientist/idear4
+    {
+        author: "Andrei Linde",
+    },
+    //scientist/idear5
+    {
+        author: "Anthropic principle",
+    },
+    //scientist/idear6
+    {
+        author: "Brian Greene,",
+    },
+    //scientist/idear7
+    {
+        author: "Bubble Universe",
+    },
+    //scientist/idear8
+    {
+        author: "Chaotic inflation",
+    },
+    //scientist/idear9
+    {
+        author: "Cosmic inflation",
+    },
+    //scientist/idear10
+    {
+        author: "Cosmological horizon",
+    },
+    //scientist/idear11
+    {
+        author: "David Deutsch",
+    },
+    //scientist/idear12
+    {
+        author: "David Gross",
+    },
+    //scientist/idear13
+    {
+        author: "Ergodic hypothesis",
+    },
+    //scientist/idear14
+    {
+        author: "Jim Baggott",
+    },
+    //scientist/idear15
+    {
+        author: "Laura Mersini-Houghton",
+    },
+    //scientist/idear16
+    {
+        author: "Leonard Susskind",
+    },
+    //scientist/idear17
+    {
+        author: "Marcelo Gleiser",
+    },
+    //scientist/idear18
+    {
+        author: "Max Tegmark",
+    },
+    //scientist/idear19
+    {
+        author: "Michio Kaku",
+    },
+    //scientist/idear20
+    {
+        author: "M-theory",
+    },
+    //scientist/idear21
+    {
+        author: "Multiverse",
+    },
+    //scientist/idear22
+    {
+        author: "Occams razor",
+    },
+    //scientist/idear23
+    {
+        author: "Paul Davies",
+    },
+    //scientist/idear24
+    {
+        author: "Paul Steinhardt",
+    },
+    //scientist/idear25
+    {
+        author: "Raj Pathria",
+    },
+    //scientist/idear26
+    {
+        author: "Sean Carroll",
+    },
+    //scientist/idear27
+    {
+        author: "Sloan Sky Survey",
+    },
+    //scientist/idear28
+    {
+        author: "Stephen Hawking",
+    },
+    //scientist/idear29
+    {
+        author: "Steven Weinberg",
+    },
+    //scientist/idear30
+    {
+        author: "WMAP",
+    },
+    //scientist/idear31
+    {
+        author: "Yasunori Nomura",
+    },
+
+]
+
+
+// Search terms for the various levels found by #IDs
 
 var level = "beyond+the+cosmological+horizon"
 var leve2 = "multiverse+different+constants"
