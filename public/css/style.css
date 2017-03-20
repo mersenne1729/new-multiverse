@@ -1,4 +1,57 @@
-/*  Sheet styles */
+/* -------------------------------------
+CSS reset
+    Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+
+    /*reset Firefox user agent styles*/
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+
+    /*reset Internet Explorer user agent styles*/
+    -ms-margin-before: 0px;
+    -ms-margin-after: 0px;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+    -ms-padding-before: 0px;
+    -ms-padding-after: 0px;
+    -ms-padding-start: 0px;
+    -ms-padding-end: 0px;
+
+    /*reset Opera user agent styles*/
+    -o-margin-before: 0px;
+    -o-margin-after: 0px;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+    -o-padding-before: 0px;
+    -o-padding-after: 0px;
+    -o-padding-start: 0px;
+    -o-padding-end: 0px;
+}
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -21,7 +74,7 @@ ul {
 }
 
 
-/* Nav section */
+/*//////////////////////// Nav section ////////////////////////*/
 
 .nav {
     background-color: #fff;
@@ -65,7 +118,7 @@ ul {
 }
 
 
-/* Intro Section */
+/*//////////////////////// Intro Section ////////////////////////*/
 
 .intro {
     background: url('../img/level4.jpg') no-repeat center bottom;
@@ -92,7 +145,7 @@ ul {
 }
 
 
-/* Containers for conent and resource  */
+/*//////////////////////// Containers for conent and resource  ////////////////////////*/
 
 .resource-button-holder {
     text-align: center;
@@ -109,8 +162,31 @@ ul {
     color: white;
 }
 
+/*//////////////////////// The buttons ////////////////////////*/
 
-/* level sections */
+.intro .buttons {
+    color: white;
+    text-align: center;
+    margin-top: 1.563rem;
+}
+
+.mainbutton {
+    background-color: green;
+    width: 9.688rem;
+    border-style: none;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-size: 1.125rem;
+}
+
+.mainbutton:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+/*//////////////////////// levels sections ////////////////////////*/
 
 
 /*level0*/
@@ -275,31 +351,8 @@ ul {
 }
 
 
-/* The buttons */
 
-.intro .buttons {
-    color: white;
-    text-align: center;
-    margin-top: 1.563rem;
-}
-
-.mainbutton {
-    background-color: green;
-    width: 9.688rem;
-    border-style: none;
-    border-radius: 4px;
-    padding: 1rem 1.5rem;
-    color: white;
-    font-size: 1.125rem;
-}
-
-.mainbutton:hover {
-    background-color: lightgreen;
-    cursor: pointer;
-}
-
-
-/* Level breake */
+/*//////////////////////// Levels breake sectionS ////////////////////////*/
 
 .level-type {
     background-color: #fff;
@@ -350,7 +403,103 @@ h3 span {
 }
 
 
-/* Footer */
+
+/*////////////////////////Content box ////////////////////////*/
+
+.content-container {
+    background-color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-style: none;
+    border-radius: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: black;
+}
+
+
+.scientist-search-form {
+    display: block;
+    text-align: left;
+}
+.scientist-search-form .input-placeholder, .scientist-search-form button{
+    display: inline-block;
+}
+
+.content-box {
+    text-align: center;
+}
+
+.search-results {
+    background-color: white;
+    border-radius: 4px;
+    height: 100%;
+    width: 47.5%;
+    margin-top: 1rem;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: inline-block;
+    text-align: justify;
+    vertical-align: top;
+    padding: 15px;
+}
+.search-results p{
+    display:block;
+    margin: 15px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+
+.title {
+    color: #e65e11;
+    font-size: 1.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.author {
+    font-size: 1rem;
+    padding-left: 1rem;
+    color: #333;
+}
+
+.author span {
+    font-weight: bold;
+}
+
+.abstract {
+    text-align: justify;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.pdf-buttons {
+    color: white;
+    text-align: left;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.pdf {
+    background-color: green;
+    border-style: none;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    color: white;
+    font-size: .75rem;
+}
+
+
+
+
+/*//////////////////////// Footer ////////////////////////*/
 
 .footer {
     background-color: #fff;
@@ -370,7 +519,11 @@ h3 span {
 .footer hr a {
     text-decoration: none;
     list-style: none;
+
 }
+
+
+/*////////////////////////END OF LAYOUT ////////////////////////*/
 
 
 /* Responsive Design */
@@ -417,78 +570,4 @@ h3 span {
     50% {
         margin-top: 2rem;
     }
-}
-
-.content-container {
-    background-color: ghostwhite;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-style: none;
-    border-radius: 5px;
-    text-align: justify;
-    color: black;
-}
-
-
-/*content box*/
-
-.content-box {
-    text-align: center;
-}
-
-.search-results {
-    background-color: white;
-    border-radius: 4px;
-    height: 100%;
-    width: 48.5%;
-    margin-top: 1rem;
-    font-size: 1rem;
-    background-color: white;
-    border-radius: 0.1rem;
-    margin-bottom: 2rem;
-    display: inline-block;
-    margin-left: .25rem;
-    margin-right: .25rem;
-    text-align: justify;
-}
-
-.title {
-    color: #e65e11;
-    font-size: 1.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
-}
-
-.author {
-    font-size: 1rem;
-    padding-left: 1rem;
-    color: #333;
-}
-
-.author span {
-    font-weight: bold;
-}
-
-.abstract {
-    text-align: justify;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.pdf-buttons {
-    color: white;
-    text-align: left;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    margin-bottom: 2rem;
-}
-
-.pdf {
-    background-color: green;
-    border-style: none;
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-    color: white;
-    font-size: .75rem;
 }
