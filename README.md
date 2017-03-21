@@ -1,3 +1,6 @@
+## Work in Progress
+This site is still very much in progress.
+
 ## Synopsis
 
 This site presents a platform for the multiverse theory, the mind-bending idea that there are many if not innumerable other universes beyond our own, featuring a *CORE* API, a leading open journal. 
