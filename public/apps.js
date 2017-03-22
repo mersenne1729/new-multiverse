@@ -229,21 +229,37 @@ $(document).on('click', '.scientist-search-form .pdf', function(event) {
             dataType: 'json',
         })
         .done(function(resultArticleIds) {
-            console.log(resultArticleIds.data);
-            
+            // console.log(resultArticleIds.data);
+
             var buildTheHtmlOutput = "";
 
             $.each(resultArticleIds.data, function(searchResultKey, searchResultValue) {
-                
+
                 buildTheHtmlOutput += '<div class="search-results">';
-                buildTheHtmlOutput += '<div class="title'+searchResultValue.id+'">The Mathematical Universe</div>';
-                buildTheHtmlOutput += '<div class="author'+searchResultValue.id+'"> </div>';
-                buildTheHtmlOutput += '<p class="abstract'+searchResultValue.id+'"></p>';
-                buildTheHtmlOutput += '<a href="">';
-                buildTheHtmlOutput += '    <img class="incon">';
-                buildTheHtmlOutput += '</a>';
+                
+                buildTheHtmlOutput += '<h5 class="title' + searchResultValue.id + '">The Mathematical Universe</h5>';
+                
+                buildTheHtmlOutput += '<h6 class="author' + searchResultValue.id + '"> </h6>';
+                
+                buildTheHtmlOutput += '<p class="abstract' + searchResultValue.id + '"></p>';
+                
                 buildTheHtmlOutput += '<div class="pdf-buttons">';
-                buildTheHtmlOutput += '    <button class="pdf">Get PDF</button>';
+                buildTheHtmlOutput += '<a class="pdf url' + searchResultValue.id + '" href="" target="_blank">';
+                buildTheHtmlOutput += 'Details >>';
+                buildTheHtmlOutput += '</a>';
+
+
+                buildTheHtmlOutput += "<div class='reading-list" + searchResultValue.id + "'>";
+                buildTheHtmlOutput += "<form class='add-to-reading-list-form'>";
+                buildTheHtmlOutput += "<input type='hidden' class='reading-list-title' value=''>";
+                buildTheHtmlOutput += "<input type='hidden' class='reading-list-author' value=''>";
+                buildTheHtmlOutput += "<input type='hidden' class='reading-list-url' value=''>";
+                buildTheHtmlOutput += "<button type='submit' class='add-to-reading-list-button pdf add-to-reading-list-icon '>";
+                buildTheHtmlOutput += '<i class="fa fa-bookmark-o" aria-hidden="true"></i>';
+                buildTheHtmlOutput += "</button>";
+                buildTheHtmlOutput += "</form>";
+                buildTheHtmlOutput += "</div>";
+                
                 buildTheHtmlOutput += '</div>';
                 buildTheHtmlOutput += '</div>';
 
@@ -255,44 +271,92 @@ $(document).on('click', '.scientist-search-form .pdf', function(event) {
                     .done(function(resultArticleDetails) {
 
                         $.each(resultArticleDetails, function(resultArticleDetailsKey, resultArticleDetailsValue) {
-                           
-                            console.log(searchResultValue.id, resultArticleDetailsValue.authors);
-                            
+
                             //authors
-                            if(resultArticleDetailsValue.authors === undefined) {
-                                $(".author"+searchResultValue.id).hide();
+                            if (resultArticleDetailsValue.authors == undefined) {
+                                $(".author" + searchResultValue.id).hide();
                             }
                             else {
-                                $(".author"+searchResultValue.id).html(resultArticleDetailsValue.authors[0]);
+                                $(".author" + searchResultValue.id).html(resultArticleDetailsValue.authors[0]);
+                                $('.reading-list' + searchResultValue.id + " .reading-list-author").val(resultArticleDetailsValue.authors[0]);
+                                $(".author" + searchResultValue.id).show();
                             }
-                            
-                            
+
                             //title
-                            if(resultArticleDetailsValue.description == "") {
-                                $(".title"+searchResultValue.id).hide();
+                            if (resultArticleDetailsValue.title == "") {
+                                $(".title" + searchResultValue.id).hide();
                             }
                             else {
-                                $(".title"+searchResultValue.id).html(resultArticleDetailsValue.description);
+                                $(".title" + searchResultValue.id).html(resultArticleDetailsValue.title);
+                                $('.reading-list' + searchResultValue.id + " .reading-list-title").val(resultArticleDetailsValue.title);
+                                $(".title" + searchResultValue.id).show();
                             }
-                            
+
                             //description
-                            if(resultArticleDetailsValue.description == "") {
-                                $(".abstract"+searchResultValue.id).hide();
+                            if (resultArticleDetailsValue.description == "") {
+                                $(".abstract" + searchResultValue.id).hide();
                             }
                             else {
-                                $(".abstract"+searchResultValue.id).html(resultArticleDetailsValue.description);
+                                $(".abstract" + searchResultValue.id).html(resultArticleDetailsValue.description);
+                                $(".abstract" + searchResultValue.id).show();
                             }
+                            // fulltextUrls
+                            if (resultArticleDetailsValue.fulltextUrls == undefined) {
+                                $(".url" + searchResultValue.id).hide();
+                            }
+                            else {
+                                $(".url" + searchResultValue.id).attr("href", resultArticleDetailsValue.fulltextUrls[0]);
+                                $('.reading-list' + searchResultValue.id + " .reading-list-url").val(resultArticleDetailsValue.fulltextUrls[0]);
+                                $(".url" + searchResultValue.id).show();
+                            }
+
                         });
-                        
+
                     })
                     .fail(function(jqXHR, error, errorThrown) {
                         console.log(jqXHR);
                         console.log(error);
                         console.log(errorThrown);
                     });
-                
+
             });
             $(".content-box").html(buildTheHtmlOutput);
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});
+
+
+$(document).on('click', '.add-to-reading-list-form .add-to-reading-list-button', function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    
+    //get the value from the input boxes
+    var readingListTitle = $(this).parent().find('.reading-list-title').val();
+    var readingListAuthor = $(this).parent().find('.reading-list-author').val();
+    var readingListUrl = $(this).parent().find('.reading-list-url').val();
+
+console.log(readingListTitle, readingListAuthor, readingListUrl);
+
+    var nameObject = {
+        'title': readingListTitle,
+        'author': readingListAuthor,
+        'url': readingListUrl
+    };
+
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(nameObject),
+            url: '/add-to-reading-list/',
+        })
+        .done(function(result) {
+            console.log(result);
+            //populateFavoritesContainer();
         })
         .fail(function(jqXHR, error, errorThrown) {
             console.log(jqXHR);

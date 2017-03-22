@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
 var ItemSchema = new mongoose.Schema({
-    name: { type: String, required: false },
-    type: { type: String, required: false }
+    title: { type: String, required: false },
+    author: { type: String, required: false },
+    url: { type: String, required: false },
 });
 
 var Item = mongoose.model('Item', ItemSchema);

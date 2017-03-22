@@ -125,15 +125,16 @@ app.get('/get-article-details/:articleID', function (req, res) {
 
 });
 
-app.post('/favorites', function (req, res) {
+app.post('/add-to-reading-list', function (req, res) {
     
 
     console.log("request body = ", req.body);
 
     //db connection and data queries
         Item.create({
-            name: req.body.name,
-            type: req.body.type
+            title: req.body.title,
+            author: req.body.author,
+            url: req.body.url,
         }, function (err, item) {
             if (err) {
                 return res.status(500).json({
