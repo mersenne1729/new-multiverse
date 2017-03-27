@@ -210,10 +210,51 @@ function displaySearchResults(videosArray) {
     $(".js-search-results").html(buildTheHtmlOutput);
 }
 
+//populate favorites container
+function populateFavoritesContainer() {
+
+
+    $.ajax({
+            type: "GET",
+            url: "/populate-favorites/",
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function(result) {
+            //If successful, set some globals instead of using result object
+            console.log(result);
+
+
+            var buildTheHtmlOutput = "";
+
+            $.each(result, function(resultKey, resultValue) {
+
+                buildTheHtmlOutput += "<li>";
+                buildTheHtmlOutput += '<h5 class="favoritesTitle">' + resultValue.title + '</h5>';
+                
+                buildTheHtmlOutput += '<h6 class="favoritesAuthor">' + resultValue.author + '</h6>';
+                
+                buildTheHtmlOutput += '<div class="pdf-buttons">';
+                buildTheHtmlOutput += '<a class="pdf url" href="' + resultValue.url + '" target="_blank">';
+                buildTheHtmlOutput += 'Details >>';
+                buildTheHtmlOutput += '</a>';
+                buildTheHtmlOutput += "</li>";
+
+            })
+            $(".favorites .content-container ul").html(buildTheHtmlOutput);
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
 
 //document ready related code
 $(function() {
     populateScientistDropDown(scientistArray);
+    populateFavoritesContainer();
+    
 });
 
 $(document).on('click', '.scientist-search-form .pdf', function(event) {
@@ -356,7 +397,28 @@ console.log(readingListTitle, readingListAuthor, readingListUrl);
         })
         .done(function(result) {
             console.log(result);
-            //populateFavoritesContainer();
+            populateFavoritesContainer();
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});
+
+$(document).on('click', '.clearFavoritesButton', function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+
+    $.ajax({
+            method: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/delete-favorites',
+        })
+        .done(function(result) {
+            console.log(result);
+            populateFavoritesContainer();
         })
         .fail(function(jqXHR, error, errorThrown) {
             console.log(jqXHR);
