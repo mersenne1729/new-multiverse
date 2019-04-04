@@ -1,17 +1,9 @@
 ## Work in Progress
-This site is still very much in progress.
+This site is very much in progress and just a fun way for me to understand a littel more about programing.
 
 ## Synopsis
 
 This site presents a platform for the multiverse theory, the mind-bending idea that there are many if not innumerable other universes beyond our own, featuring a *CORE* API, a leading open journal. 
-
-## Motivation
- 
-This site is made to help those who have an interest in learning more about the possibilities of multiple universes and the different hypotheses. 
-
-## User Case
-
-The site’s layout and information is based on the cosmologist Max Tegmark’s classification scheme and enables users to easily navigate through the various classifications. It has straightforward summaries for those who just want the basics, and for those who want to delve deeper the site provides access to some of the key relevant academic papers written by the theory’s strongest proponents and critics. 
 
 ## Initial UX
 
@@ -35,11 +27,3 @@ The site's functionality includes:
 ## Technical
 
 The site is built with HTML, CSS, JavaScript, jQuery with the backend made with Node.js. It makes use of a JSON call to the *CORE* Open Platform API to return the data. Webpack is used to take any modules with dependencies to generate static assets that represent those modules. It has been built to be fully responsive across mobile, tablet and desktop screen resolutions.
-
-## Development Roadmap
-
-This is v1.0 of the site, future enhancements will include:
-* A degree of data sanitisation so the search returns even more accurate results. 
-* Extending the site to include other relevant content such as videos and books links.
-* Redesigning the user interface to better reflect the nature of the theory.
-
